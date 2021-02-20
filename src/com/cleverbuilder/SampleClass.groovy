@@ -5,7 +5,8 @@ class SampleClass {
    String name
    Integer age
 
-   def increaseAge(Integer years) {
-      this.age += years
+   def increaseAge(Map mymap) {
+      System.out.println "Invoke method $mymap.name
+      //this.age += years
    }
 }
