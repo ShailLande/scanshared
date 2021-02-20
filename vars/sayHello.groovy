@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call(Map m,String name,int age) {
+def call(String name,int age,Map m) {
   echo "Hello, ${name},${age}, ${m}"
 }
 
