@@ -14,8 +14,6 @@ class SampleClass {
 ]
       map.each { println "Hex Code: $it.key = Color Name: $it.value" }
     */ 
-      println "in"
-      println "Invoke method $val"
-     // this.age += years
+      this.name = val
    }
 }
