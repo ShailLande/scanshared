@@ -12,8 +12,9 @@ def call(String imgname,Map m) {
  // docker run --rm aquasec/trivy image  venafidevops/venafi-java-base 
 //  echo "cmddd-  ${cmd}"
   sh """
-  myflag =docker run --rm aquasec/trivy image ${imgname}
+  docker run --rm aquasec/trivy image ${imgname}
   """
+ def rc= sh(returnStatus: true, script: '$?')
 
  
 
