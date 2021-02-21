@@ -16,10 +16,7 @@ class SampleClass {
     */ 
       sh '''
      VARIABLE="something"
-     //docker pull aquasec/trivy
-     //docker pull venafidevops/venafi-java-base
-    // docker run --rm aquasec/trivy image  venafidevops/venafi-java-base 
-     //exitcode=$?
+     
     '''
       this.name = env['VARIABLE']
    }
