@@ -12,6 +12,7 @@ def call(String imgname,Map m) {
   sh """
   docker run --rm aquasec/trivy image ${imgname}
   """
+  def rc = $?
   //def ret = sh(script: 'uname', returnStdout: true)
 
  // def rc = sh(script: 'docker run --rm aquasec/trivy image'"${cmd}")
@@ -19,7 +20,7 @@ def call(String imgname,Map m) {
   //echo "RCCCC - ${rc}"
 
 //  return "${rc}"
-             return 0
+             return rc
    // def consul =  new org.foo.Consul()
   //  consul.construct(httpObj)
  //   return consul
