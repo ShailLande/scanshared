@@ -5,7 +5,7 @@ class SampleClass {
    String name
    Integer age
 
-   def increaseAge(String s) {
+   def increaseAge(Integer years) {
      /* def map = [
     'FF0000' : 'Red',
     '00FF00' : 'Lime',
@@ -15,6 +15,6 @@ class SampleClass {
       map.each { println "Hex Code: $it.key = Color Name: $it.value" }
     */  
       println "Invoke method $s"
-      //this.age += years
+      this.age += years
    }
 }
