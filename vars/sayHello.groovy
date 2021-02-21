@@ -9,18 +9,26 @@ def call(String imgname,Map m) {
   //echo "RCCCC - ${rc}"
 //  def cmd= "script: 'docker run --rm aquasec/trivy image" +" ${imgname}'" 
 //  echo "cmddd-  ${cmd}"
-  sh """
+ /* sh """
   docker run --rm aquasec/trivy image ${imgname}
   """
-   def rc = sh("\$")
+   def rc = sh("\$")*/
   //def ret = sh(script: 'uname', returnStdout: true)
+  
+  def command = "script: 'docker run --rm aquasec/trivy image" +" ${imgname}'"
+def proc = command.execute()
+proc.waitFor()              
+
+println "Process exit code: ${proc.exitValue()}"
+println "Std Err: ${proc.err.text}"
+println "Std Out: ${proc.in.text}"
 
  // def rc = sh(script: 'docker run --rm aquasec/trivy image'"${cmd}")
 //  def rc= sh(returnStatus: true, script: 'docker run --rm aquasec/trivy image' + "${imgname}" + ')'  //venafidevops/venafi-java-base')
-  echo "RCCCC - ${rc}"
+  //echo "RCCCC - ${rc}"
 
 //  return "${rc}"
-    return "${rc}"
+    return 0
    // def consul =  new org.foo.Consul()
   //  consul.construct(httpObj)
  //   return consul
