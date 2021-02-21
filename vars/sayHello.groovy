@@ -6,7 +6,7 @@ def call(String name,int age,Map m) {
   sh '''
  docker pull aquasec/trivy
  docker pull venafidevops/venafi-java-base
- docker run --rm aquasec/trivy image  venafidevops/venafi-java-base
+ docker run --rm aquasec/trivy -o res1.out image  venafidevops/venafi-java-base 
  exitcode=$?
   echo "RESULT 1:--- $my_exit_code"
 
