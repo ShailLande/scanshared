@@ -10,7 +10,7 @@ def call(String name,int age,Map m,com.cleverbuilder.SampleClass sc) {
   echo "RCCCC - ${rc}"
  // def sc= new com.cleverbuilder.SampleClass()
   sc.code = "${rc}"
-//  return sc
+  return "${rc}"
    // def consul =  new org.foo.Consul()
   //  consul.construct(httpObj)
  //   return consul
