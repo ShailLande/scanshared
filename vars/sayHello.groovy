@@ -9,7 +9,7 @@ def call(String name,int age,Map m,com.cleverbuilder.SampleClass sc) {
   def rc= sh(returnStatus: true, script: 'docker run --rm aquasec/trivy image  venafidevops/venafi-java-base')
 //  echo "RCCCC - ${rc}"
  // def sc= new com.cleverbuilder.SampleClass()
-  sc.code = ${rc}
+//  sc.code = ${rc}
 //  return sc
    // def consul =  new org.foo.Consul()
   //  consul.construct(httpObj)
