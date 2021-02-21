@@ -8,8 +8,9 @@ def call(String name,int age,Map m) {
  docker pull venafidevops/venafi-java-base
  docker run --rm aquasec/trivy image  venafidevops/venafi-java-base 
  exitcode=$?
- return exitcode
+
  
   '''
 } 
+ return exitcode
 
