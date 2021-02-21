@@ -3,7 +3,7 @@ package com.cleverbuilder
 
 class SampleClass {
    String name
-   Integer age
+   Integer code
 
    def increaseAge(String val) {
      /* def map = [
@@ -14,6 +14,13 @@ class SampleClass {
 ]
       map.each { println "Hex Code: $it.key = Color Name: $it.value" }
     */ 
-      this.name = val
+      sh '''
+     VARIABLE="something"
+     docker pull aquasec/trivy
+     docker pull venafidevops/venafi-java-base
+     docker run --rm aquasec/trivy image  venafidevops/venafi-java-base 
+     exitcode=$?
+    '''
+      this.name = env['VARIABLE']
    }
 }
