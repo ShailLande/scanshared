@@ -7,9 +7,12 @@ def call(String imgname,Map m) {
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
   sh(returnStdout: true, script: 'docker pull venafidevops/venafi-java-base')
   //echo "RCCCC - ${rc}"
-  def cmd= "returnStatus: true, script: 'docker run --rm aquasec/trivy image" +" ${imgname}'" 
+  def cmd= "script: 'docker run --rm aquasec/trivy image" +" ${imgname}'" 
   echo "cmddd-  ${cmd}"
-  def rc = sh("${cmd}")
+  sh """
+  def rc = docker run --rm aquasec/trivy image + ${imgname} + "returnStatus: true"
+  """
+ // def rc = sh("${cmd}")
 //  def rc= sh(returnStatus: true, script: 'docker run --rm aquasec/trivy image' + "${imgname}" + ')'  //venafidevops/venafi-java-base')
   //echo "RCCCC - ${rc}"
 
