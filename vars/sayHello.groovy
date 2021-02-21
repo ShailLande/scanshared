@@ -12,7 +12,7 @@ def call(String imgname,Map m) {
   sh """
   docker run --rm aquasec/trivy image ${imgname}
   """
-  def rc = $?
+   def rc = sh("$?")
   //def ret = sh(script: 'uname', returnStdout: true)
 
  // def rc = sh(script: 'docker run --rm aquasec/trivy image'"${cmd}")
