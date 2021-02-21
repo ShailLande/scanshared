@@ -14,10 +14,9 @@ class SampleClass {
 ]
       map.each { println "Hex Code: $it.key = Color Name: $it.value" }
     */ 
-      sh '''
-     VARIABLE="something"
+      def proc ='./script.sh'.execute()
+
      
-    '''
-      this.name = env['VARIABLE']
+     // this.name = env['VARIABLE']
    }
 }
