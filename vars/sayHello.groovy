@@ -17,7 +17,7 @@ def call(String imgname,Map m) {
     """
     */
 
-  def rc = sh(script: 'docker run --rm aquasec/trivy image \\\" ${imgname}\\\"""')
+  def rc = sh(script: 'docker run --rm aquasec/trivy image \\\"${imgname}\\\""')
 //  def rc= sh(returnStatus: true, script: 'docker run --rm aquasec/trivy image' + "${imgname}" + ')'  //venafidevops/venafi-java-base')
   //echo "RCCCC - ${rc}"
 
