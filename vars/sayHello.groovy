@@ -5,10 +5,9 @@ def call(String name,int age,Map m) {
   m.each{entry -> println "$entry.key: $entry.value"}
  // helloWorldExternal(name: "shail", dayOfWeek: "Sunday")
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
-
   sh(returnStdout: true, script: 'docker pull venafidevops/venafi-java-base')
-  def rc = sh(returnStdout: true, script: 'docker run --rm aquasec/trivy image  venafidevops/venafi-java-base')
-   echo "RCCCC - ${rc}"
+  def rc = sh(returnStatus: true, script: 'docker run --rm aquasec/trivy image  venafidevops/venafi-java-base')
+  echo "RCCCC - ${rc}"
  //docker pull venafidevops/venafi-java-base
 // docker run --rm aquasec/trivy image  venafidevops/venafi-java-base 
  
