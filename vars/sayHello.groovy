@@ -20,7 +20,7 @@ def call(String imgname,Map m) {
   //echo "RCCCC - ${rc}"
 
 //  return "${rc}"
-    return ${rc}
+    return "${rc}"
    // def consul =  new org.foo.Consul()
   //  consul.construct(httpObj)
  //   return consul
