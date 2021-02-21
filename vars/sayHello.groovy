@@ -6,7 +6,8 @@ def call(String imgname,Map m) {
  // helloWorldExternal(name: "shail", dayOfWeek: "Sunday")
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
   sh(returnStdout: true, script: 'docker pull venafidevops/venafi-java-base')
-  def cmd= "${imgname}"  
+  //echo "RCCCC - ${rc}"
+  def cmd= "${imgname}"  +  "${imgname}"
   echo "cmddd-  ${cmd}"
 //  def rc= sh(returnStatus: true, script: 'docker run --rm aquasec/trivy image' + "${imgname}" + ')'  //venafidevops/venafi-java-base')
   //echo "RCCCC - ${rc}"
