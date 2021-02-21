@@ -5,9 +5,9 @@ def call(String imgname,Map m) {
 //  m.each{entry -> println "$entry.key: $entry.value"}
  // helloWorldExternal(name: "shail", dayOfWeek: "Sunday")
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
-  sh(returnStdout: true, script: 'docker pull venafidevops/venafi-java-base')
+  sh(returnStdout: true, script: "docker pull ${imgname}")
   //echo "RCCCC - ${rc}"
-  def cmd= "script: 'docker run --rm aquasec/trivy image " +" ${imgname}'" 
+ 
  // sh("${cmd}")//returnStdout: true,script: 'docker run --rm aquasec/trivy image ${imgname}')//
  // docker run --rm aquasec/trivy image  venafidevops/venafi-java-base 
 //  echo "cmddd-  ${cmd}"
