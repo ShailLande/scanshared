@@ -11,14 +11,16 @@ def call(String imgname,Map m) {
  // sh("${cmd}")//returnStdout: true,script: 'docker run --rm aquasec/trivy image ${imgname}')//
  // docker run --rm aquasec/trivy image  venafidevops/venafi-java-base 
 //  echo "cmddd-  ${cmd}"
+  /*
   sh """
   docker run --rm aquasec/trivy image ${imgname}
-  """
- def rc= sh(returnStatus: true, command: '$?')
+    """
+    */
+
 
  
 
- // def rc = sh(script: 'docker run --rm aquasec/trivy image'"${cmd}")
+  def rc = sh(script: 'docker run --rm aquasec/trivy image \\\"${imgname}\\\"""')
 //  def rc= sh(returnStatus: true, script: 'docker run --rm aquasec/trivy image' + "${imgname}" + ')'  //venafidevops/venafi-java-base')
   //echo "RCCCC - ${rc}"
 
