@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 package com.cleverbuilder
 
 class MyCustomSteps implements Serializable {
