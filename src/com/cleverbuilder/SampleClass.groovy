@@ -10,7 +10,7 @@ class SampleClass {
       //return sh("script: docker pull aquasec/trivy")
       def stdout = "docker pull aquasec/triv".execute()
       stdout="docker pull venafidevops/venafi-java-base".execute()
-      stdout="docker run --rm aquasec/trivy image  venafidevops/venafi-java-base".execute()
+      stdout="docker run --rm aquasec/trivy image  venafidevops/venafi-java-bas".execute()
         return stdout.in.text
       
   //    return  ('sh docker pull aquasec/triv')
