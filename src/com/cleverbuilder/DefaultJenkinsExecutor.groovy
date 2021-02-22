@@ -1,3 +1,5 @@
+package com.cleverbuilder
+
 class DefaultJenkinsExecutor implements JenkinsExecutor {
     private final script
 
