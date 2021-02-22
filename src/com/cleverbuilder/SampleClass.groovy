@@ -15,10 +15,13 @@ class SampleClass {
         return stdout.in
       
       */
+      def output = new StringWriter()
+    def error = new StringWriter()
       def cmd = "docker pull aquasec/triv"
       Process it = cmd.execute()
-       it.waitForProcessOutput(System.out, System.err) 
-      return it.exitValue()
+       it.waitForProcessOutput(output, error) 
+      return "${error}"
+    //  return it.exitValue()
 // this one should work for you:
 // def cmd = ['/bin/sh',  '-c',  'echo "${metric}" | nc carbon.hostedgraphite.com 2003']
       /*
