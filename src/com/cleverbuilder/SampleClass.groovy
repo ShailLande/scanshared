@@ -5,7 +5,7 @@ class SampleClass {
    String name
    Integer code
 
-   def integer increaseAge(String val) {
+   def Integer increaseAge(String val) {
     
     
         sh(returnStdout: true, script: 'docker pull aquasec/trivy')
