@@ -16,12 +16,16 @@ class SampleClass {
       
       */
       def cmd = "docker pull aquasec/triv"
+      Process it = cmd.execute()
+       it.waitForProcessOutput(System.out, System.err) 
+      return it.exitValue()
 // this one should work for you:
 // def cmd = ['/bin/sh',  '-c',  'echo "${metric}" | nc carbon.hostedgraphite.com 2003']
-
-cmd.execute().with{
-    def output = new StringWriter()
+      /*
+ def output = new StringWriter()
     def error = new StringWriter()
+cmd.execute().with{
+   
     //wait for process ended and catch stderr and stdout.
     it.waitForProcessOutput(output, error)
     //check there is no error
@@ -29,6 +33,7 @@ cmd.execute().with{
     println "output=$output"
     println "code=${it.exitValue()}"
 }
+*/
 
       
       
