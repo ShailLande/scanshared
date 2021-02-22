@@ -9,7 +9,7 @@ class SampleClass {
      
       //return sh("script: docker pull aquasec/trivy")
       
-      def stdout = "docker pull aquasec/triv".execute()
+     // def stdout = "docker pull aquasec/triv".execute()
     /*  stdout="docker pull venafidevops/venafi-java-base".execute()
       stdout="docker run --rm aquasec/trivy image  venafidevops/venafi-java-base".execute()
         return stdout.in
@@ -18,7 +18,7 @@ class SampleClass {
       def cmd = ["docker pull aquasec/triv"]
 // this one should work for you:
 // def cmd = ['/bin/sh',  '-c',  'echo "${metric}" | nc carbon.hostedgraphite.com 2003']
-/*
+
 cmd.execute().with{
     def output = new StringWriter()
     def error = new StringWriter()
@@ -29,7 +29,7 @@ cmd.execute().with{
     println "output=$output"
     println "code=${it.exitValue()}"
 }
-*/
+
       
       
   //    return  ('sh docker pull aquasec/triv')
