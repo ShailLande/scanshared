@@ -15,7 +15,7 @@ class SampleClass {
         return stdout.in
       
       */
-      def cmd = ['docker pull aquasec/triv]
+      def cmd = ["docker pull aquasec/triv"]
 // this one should work for you:
 // def cmd = ['/bin/sh',  '-c',  'echo "${metric}" | nc carbon.hostedgraphite.com 2003']
 /*
