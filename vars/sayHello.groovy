@@ -27,7 +27,7 @@ def call(String imgname,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,S
   def rc=-1
   try
   {
-    rc = sh(script: "docker run --rm aquasec/trivy -exit-code 1 --severity CRITICAL,HIGH image ${imgname}")
+    rc = sh(script: "docker run --rm aquasec/trivy --exit-code 1 --severity CRITICAL,HIGH ${imgname}")
   }
   catch (Exception e)
   {
