@@ -10,8 +10,8 @@ def call(String imgname,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,S
   }
   catch (Exception e)
   {
-    println("Exception: ${e}")
-    return 1
+    println("Exception in Docker Pull: ${e}")
+    
   }
   
   try
@@ -20,22 +20,22 @@ def call(String imgname,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,S
   }
   catch (Exception e)
   {
-    println("Exception: ${e}")
-    return 1
+    println("Exception in Docker pull Image : ${e}")
+  
   }
   
+  def rc=-1
   try
   {
-    def rc = sh(script: "docker run --rm aquasec/trivy image ${imgname}")
+    rc = sh(script: "docker run --rm aquasec/trivy -exit-code 1 --severity CRITICAL,HIGH image ${imgname}")
   }
   catch (Exception e)
   {
-    println("Exception: ${e}")
+    println("Exception in Docker Run Image: ${e}")
     return 1
   }
  
-
-  return 0
+  return "${rc}"
   } 
 
 
