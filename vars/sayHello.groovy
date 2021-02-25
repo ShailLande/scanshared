@@ -4,10 +4,9 @@ def call(String imgname,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,S
   //sh 'docker login https://${SRC_DOCKER_REGISTRY} -u ${ARTIFACTORY_USERNAME} -p ${ARTIFACTORY_PASSWD}'
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
   sh(returnStdout: true, script: "docker pull ${imgname}")
-  def rc = sh(returnStatus:true,script: "docker run  --rm aquasec/trivy --exit-code 1 --severity CRITICAL,HIGH ${imgname}")
-  echo "RCCCCC ${rc}"
+  def rc = sh(returnStatus:true,label:"Testing Img" ,script: "docker run  --rm aquasec/trivy --exit-code 1 --severity CRITICAL,HIGH ${imgname}")
   if("${rc}" == "1") 
-  echo "Build failed due to HIGH or CRITICAL Vulnerabilties for Image- ${imgname}"
+   echo "Build failed due to HIGH or CRITICAL Vulnerabilties for Image- ${imgname}"
   else
    echo "Build Passed for Image - ${imgname}" 
   } 
