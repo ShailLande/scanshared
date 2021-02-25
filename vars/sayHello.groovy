@@ -9,4 +9,8 @@ def call(String imgname,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,S
    echo "Build failed due to HIGH or CRITICAL Vulnerabilties for Image- ${imgname}"
   else
    echo "Build Passed for Image - ${imgname}" 
+  
+  def task = "python main.py".execute()
+  task.waitFor()
+  println task.text
   } 
