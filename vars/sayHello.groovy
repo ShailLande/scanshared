@@ -5,6 +5,6 @@ def call(String imgname,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,S
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
   sh(returnStdout: true, script: "docker pull ${imgname}")
   def rc = sh(script: "docker run --rm aquasec/trivy --exit-code 1 --severity CRITICAL,HIGH ${imgname}")
-  println ("${rc}")
+  echo ("${rc}")
   return "${rc}"
   } 
