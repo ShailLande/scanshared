@@ -11,9 +11,9 @@ def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_
   sh(returnStdout: true, script: "docker pull ${imgname}")
   def rc="-1"
   if (Branch == "master")
-  rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run --it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --exit-code 1 --severity CRITICAL,HIGH ${imgname}")
+  rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --exit-code 1 --severity CRITICAL,HIGH ${imgname}")
   else
-  rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run --it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --severity CRITICAL,HIGH ${imgname}")
+  rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --severity CRITICAL,HIGH ${imgname}")
   rcmap["${imgname}"]=rc
  //   rcmap["img1"]="${rc}"
  //   rcmap.put("England", "London");
