@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper 
 def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,String ARTIFACTORY_PASSWD,String Branch) {
   for(item in myimglist){
-    println item
+    echo "${item}"
  }
   /*
   echo "Hello, ${imgname}"
