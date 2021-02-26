@@ -1,10 +1,8 @@
 import groovy.json.JsonSlurper 
 def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,String ARTIFACTORY_PASSWD,String Branch) {
-  for(item in myimglist){
-    echo "${item}"
- }
-  /*
-  echo "Hello, ${imgname}"
+  for(imgname in myimglist)
+  {
+   echo "Running scan for - ${imgname}"
   //sh 'docker login https://${SRC_DOCKER_REGISTRY} -u ${ARTIFACTORY_USERNAME} -p ${ARTIFACTORY_PASSWD}'
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
   sh(returnStdout: true, script: "docker pull ${imgname}")
@@ -18,7 +16,7 @@ def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_
    echo "Build failed due to HIGH or Avneesh Vulnerabilties for Image- ${imgname}"
   else
    echo "Build Scanned for Image - ${imgname}" 
-   */
+  }
   
   
   } 
