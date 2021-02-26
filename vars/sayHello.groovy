@@ -13,9 +13,11 @@ def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_
   rc = sh(returnStatus:true,label:"Testing Img" ,script: "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --severity CRITICAL,HIGH ${imgname}")
   
   if("${rc}" == "1") 
-   echo "Build failed due to HIGH or CRITICAL Vulnerabilties for Image- ${imgname}"
+    echo "Build failed due to HIGH or CRITICAL Vulnerabilties for Image- ${imgname}"
   else
    echo "Build Scanned for Image - ${imgname}" 
+    
+    return "${rc}"
   }
   
   
