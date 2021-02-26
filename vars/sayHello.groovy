@@ -22,6 +22,7 @@ def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_
     
   }
   echo "RCMAPPP in sayhello - ${rcmap}"
+  rcmap.each{entry -> println "$entry.key: $entry.value"}
   return "${rcmap}"
   
   } 
