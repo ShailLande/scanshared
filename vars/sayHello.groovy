@@ -10,8 +10,8 @@ def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_
   sh(returnStdout: true, script: 'docker pull aquasec/trivy')
   sh(returnStdout: true, script: "docker pull ${imgname}")
   def rc="-1"
-  if (Branch == "master")
-  rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --exit-code 1 --severity CRITICAL,HIGH ${imgname}")
+  if (Branch == "master")//--exit-code 1
+  rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy  --severity CRITICAL,HIGH ${imgname}")
   else
   rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --severity CRITICAL,HIGH ${imgname}")
   rcmap["${imgname}"]=rc
