@@ -14,6 +14,7 @@ def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_
   rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy  --severity CRITICAL,HIGH ${imgname}")
   else
   rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --severity CRITICAL,HIGH ${imgname}")
+   echo "for ${imgname} -----${rc}"
   rcmap["${imgname}"]=rc
  //   rcmap["img1"]="${rc}"
  //   rcmap.put("England", "London");
