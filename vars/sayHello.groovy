@@ -1,6 +1,7 @@
 import groovy.json.JsonSlurper 
 import java.util.HashMap;
 def call(java.util.List myimglist,String SRC_DOCKER_REGISTRY,String ARTIFACTORY_USERNAME,String ARTIFACTORY_PASSWD,String Branch) {
+ echo "in sayhello"
  def rcmap = [:]
  // def HashMap<String, String> rcmap = new HashMap<String, String>();
   for(imgname in myimglist)
