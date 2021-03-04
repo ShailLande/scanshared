@@ -17,7 +17,7 @@ import java.util.HashMap;
   else
   rc = sh(returnStatus:true,label:"Scanning Image" ,script: "docker run  --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --severity CRITICAL,HIGH ${imgname}")
    echo "for ${imgname} -----${rc}"
-   def imrc="${imgname}" +" -- " +  "${rc}"
+   def imrc="${imgname}" +"--" +  "${rc}"
    rcmap.add(imrc)
   //rcmap["${imgname}"]=rc
  //   rcmap["img1"]="${rc}"
